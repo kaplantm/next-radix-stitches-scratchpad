@@ -1,11 +1,15 @@
 import { styled } from "@stitches/react";
 
-const Flex = styled("div", {
-  display: "flex",
+const StyledDiv = styled("div", {
   variants: {
+    flex: {
+      true: {
+        display: "flex",
+      },
+    },
     variant: { full: { flex: 1, width: "100%" } },
     direction: { column: { flexDirection: "column" } },
   },
 });
 
-export default Flex;
+export default StyledDiv;

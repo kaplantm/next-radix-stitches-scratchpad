@@ -1,3 +1,5 @@
+import { useSelect } from "@react-aria/select";
+import { useTextField } from "@react-aria/textfield";
 import { createContext, useState, useContext, useCallback, ChangeEvent } from "react";
 import { pokemonTypesEnum } from "../../types/pokemon-search";
 
@@ -7,7 +9,10 @@ type PokemonSearchContextState = {
   genOneOnly: boolean;
   currentPage: number;
   totalPages: number;
-  handleSearchTermChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  handleSearchTermChange: Parameters<typeof useTextField>[0]["onChange"];
+  // not using handleTypeChange: Parameters<typeof useSelect>[0]["onSelectionChange"];
+  // since it just wants string | number and we want to be more specific
+  handleTypeChange: ((type: pokemonTypesEnum) => any) | undefined;
   setGenOneOnly: (value: boolean) => void;
   goToNextPage: () => void;
   goToPreviousPage: () => void;
@@ -22,6 +27,7 @@ const PokemonSearchContextDefaultState = {
   currentPage: 0,
   totalPages: 0,
   handleSearchTermChange: () => {},
+  handleTypeChange: () => {},
   setGenOneOnly: () => {},
   goToNextPage: () => {},
   goToPreviousPage: () => {},
@@ -34,7 +40,7 @@ const PokemonSearchContext = createContext<PokemonSearchContextState>(PokemonSea
 export function usePokemonSearchContextState(): PokemonSearchContextState {
   const [currentPage, setCurrentPage] = useState(PokemonSearchContextDefaultState.currentPage);
   const [totalPages, setTotalPages] = useState(PokemonSearchContextDefaultState.currentPage);
-  const [type, setType] = useState(PokemonSearchContextDefaultState.type);
+  const [type, setType] = useState<pokemonTypesEnum | undefined>(PokemonSearchContextDefaultState.type);
   const [searchTerm, setSearchTerm] = useState(PokemonSearchContextDefaultState.searchTerm);
   const [genOneOnly, setGenOneOnly] = useState(PokemonSearchContextDefaultState.genOneOnly);
 
@@ -49,8 +55,11 @@ export function usePokemonSearchContextState(): PokemonSearchContextState {
     setGenOneOnly(false);
   }, []);
 
-  const handleSearchTermChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value || "");
+  const handleSearchTermChange = useCallback((newSearchTerm: string) => {
+    setSearchTerm(newSearchTerm || "");
+  }, []);
+  const handleTypeChange = useCallback((newType: pokemonTypesEnum) => {
+    setType(newType);
   }, []);
 
   return {
@@ -60,6 +69,7 @@ export function usePokemonSearchContextState(): PokemonSearchContextState {
     currentPage,
     totalPages,
     handleSearchTermChange,
+    handleTypeChange,
     setGenOneOnly,
     goToNextPage,
     goToPreviousPage,

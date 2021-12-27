@@ -1,10 +1,10 @@
 import { styled } from "@stitches/react";
 import * as LabelPrimitive from "@radix-ui/react-label";
-import { grayA } from "@radix-ui/colors";
+import palette from "../../../lib/constants/palette";
 
 const Label = styled(LabelPrimitive.Root, {
   fontSize: ".8rem",
-  color: grayA.grayA11,
+  color: palette.text.primary,
   userSelect: "none",
 });
 

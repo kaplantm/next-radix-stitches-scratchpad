@@ -12,7 +12,7 @@ async function mockGetAPIResults() {
 }
 
 const PokemonSearchResults = () => {
-  const { searchTerm } = usePokemonSearchContext();
+  const { searchTerm, type } = usePokemonSearchContext();
   const debouncedSearchTerm = useDebounce(searchTerm, 200);
   const [results, setResults] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
@@ -29,6 +29,10 @@ const PokemonSearchResults = () => {
 
   return (
     <Panel direction="column">
+      <p>
+        Results for: {searchTerm}
+        {!!type && ` (${type} type)`}
+      </p>
       {/* TODO: spinner */}
       {loading && <p>Loading...</p>}
       <PokemonSearchResultsGrid results={results} />
