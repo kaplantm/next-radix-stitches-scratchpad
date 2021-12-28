@@ -29,12 +29,18 @@ const PokemonSearchResults = () => {
 
   return (
     <Panel direction="column">
-      <p>
+      <h2>
         Results for: {searchTerm}
         {!!type && ` (${type} type)`}
-      </p>
+      </h2>
+      <br />
       {/* TODO: spinner */}
-      {loading && <p>Loading...</p>}
+      {loading && (
+        <>
+          <p>Loading...</p>
+          <br />
+        </>
+      )}
       <PokemonSearchResultsGrid results={results} />
     </Panel>
   );

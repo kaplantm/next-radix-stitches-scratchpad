@@ -1,6 +1,6 @@
-import { styled } from "@stitches/react";
+import { appStyled } from "../../../lib/styling/stitches.config";
 
-const StyledDiv = styled("div", {
+const StyledDiv = appStyled("div", {
   variants: {
     flex: {
       true: {

@@ -1,7 +1,10 @@
 import { adjustColor } from "../utils/colorUtils/adjustHSLA";
 import palette from "./palette";
 
-const defaultBoxShadowColor = adjustColor(palette.common.black, { a: 0.3 });
+console.log({ palette });
+const defaultBoxShadowColor = "red";
+
+// const defaultBoxShadowColor = adjustColor(palette.grey200, { a: 0.3 });
 
 const boxShadowDefaults = {
   A: `${defaultBoxShadowColor} 0px 2px 1px -1px,

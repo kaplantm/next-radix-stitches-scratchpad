@@ -9,10 +9,9 @@ import StyledDiv from "../../../atoms/StyledDiv";
 const PokemonSearchBar = () => {
   const { handleSearchTermChange, searchTerm, handleTypeChange, type } = usePokemonSearchContext();
 
-  console.log("***", { searchTerm, type, keys: pokemonTypesList });
   return (
     <Panel>
-      <h1>Search Bar</h1>
+      <h2>Search Bar</h2>
       <StyledDiv flex>
         <TextField label="Search" placeholder="Bulbasaur" onChange={handleSearchTermChange} value={searchTerm} />
         <DropDown label="Type" onSelectionChange={handleTypeChange}>

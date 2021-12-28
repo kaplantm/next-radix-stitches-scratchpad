@@ -9,7 +9,6 @@ const PokemonSearch = () => {
   return (
     <StyledDiv variant="full" direction="column">
       <PokemonSearchContext.Provider value={pokemonSearchContextState}>
-        <h1>Pokemon Search</h1>
         <PokemonSearchBar />
         <PokemonSearchResults />
       </PokemonSearchContext.Provider>

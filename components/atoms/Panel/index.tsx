@@ -1,9 +1,9 @@
-import { styled } from "@stitches/react";
 import boxShadowDefaults from "../../../lib/constants/boxShadow";
+import { appStyled } from "../../../lib/styling/stitches.config";
 import StyledDiv from "../StyledDiv";
 
-const Panel = styled(StyledDiv, {
-  boxShadow: boxShadowDefaults.B,
+const Panel = appStyled(StyledDiv, {
+  boxShadow: "$2",
   padding: "2rem",
   margin: "2rem 0",
   borderRadius: 8,

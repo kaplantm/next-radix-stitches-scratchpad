@@ -1,8 +1,7 @@
-import { styled } from "@stitches/react";
-import boxShadowDefaults from "../../../../lib/constants/boxShadow";
-import palette from "../../../../lib/constants/palette";
+import { forwardRef } from "react";
+import { appStyled, theme } from "../../../../lib/styling/stitches.config";
 
-const StyledDropdownButton = styled("button", {
+const StyledDropdownButton = appStyled("button", {
   all: "unset",
   width: 200,
   display: "inline-flex",
@@ -14,14 +13,15 @@ const StyledDropdownButton = styled("button", {
   height: 35,
   fontSize: 15,
   lineHeight: 1,
-  color: palette.text.primary,
-  backgroundColor: palette.grey[100],
-  boxSizing: "border-box",
-  "&:focus": { border: `1px solid ${palette.common.black}` }, // TODO: now why not?
+  color: theme.colors.textPrimaryMain,
+  backgroundColor: theme.colors.filledInputMain,
+  boxShadow: theme.shadows[3],
+  "&:focus": { boxShadow: theme.shadows[4] },
 });
 
 // TODO: now tpes
-function DropDownButton({ buttonProps, valueProps, selectedItem, ref }: any) {
+
+const DropDownButton = forwardRef(({ buttonProps, valueProps, selectedItem }: any, ref) => {
   return (
     <StyledDropdownButton {...buttonProps} ref={ref}>
       <span {...valueProps}>{selectedItem ? selectedItem.rendered : "Select an option"}</span>
@@ -30,6 +30,8 @@ function DropDownButton({ buttonProps, valueProps, selectedItem, ref }: any) {
       </span>
     </StyledDropdownButton>
   );
-}
+});
+
+DropDownButton.displayName = "DropDownButton";
 
 export default DropDownButton;

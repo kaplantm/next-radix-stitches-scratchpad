@@ -1,12 +1,10 @@
-import { styled } from "@stitches/react";
 import { AriaTextFieldOptions, useTextField } from "@react-aria/textfield";
 import { useRef } from "react";
 import StyledDiv from "../StyledDiv";
 import Label from "../Label";
-import palette from "../../../lib/constants/palette";
-import boxShadowDefaults from "../../../lib/constants/boxShadow";
+import { appStyled, theme } from "../../../lib/styling/stitches.config";
 
-const TextInput = styled("input", {
+const TextInput = appStyled("input", {
   all: "unset",
   width: 200,
   display: "inline-flex",
@@ -18,10 +16,10 @@ const TextInput = styled("input", {
   height: 35,
   fontSize: 15,
   lineHeight: 1,
-  color: palette.text.primary,
-  backgroundColor: palette.grey[100],
-  boxShadow: boxShadowDefaults["0_0_0_1_grey500"],
-  "&:focus": { boxShadow: boxShadowDefaults["0_0_0_2_black"] },
+  color: theme.colors.textPrimaryMain,
+  backgroundColor: theme.colors.filledInputMain,
+  boxShadow: theme.shadows[3],
+  "&:focus": { boxShadow: theme.shadows[4] },
 });
 
 type TextFieldProps = {
@@ -46,7 +44,7 @@ function TextField(props: TextFieldProps) {
         </StyledDiv>
       )}
       {!!errorMessage && (
-        <StyledDiv {...errorMessageProps} css={{ color: palette.error.main, fontSize: 12 }}>
+        <StyledDiv {...errorMessageProps} css={{ color: theme.colors.errorMain, fontSize: 12 }}>
           {errorMessage}
         </StyledDiv>
       )}
