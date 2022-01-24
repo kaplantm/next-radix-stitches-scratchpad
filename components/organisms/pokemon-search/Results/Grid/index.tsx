@@ -1,5 +1,5 @@
 import { memo } from "react";
-import Panel from "../../../../atoms/Panel";
+import StyledDiv from "../../../../atoms/StyledDiv";
 import PokemonSearchResultsGridCard from "./Card";
 
 type PokemonSearchResultsGridProps = {
@@ -9,11 +9,11 @@ type PokemonSearchResultsGridProps = {
 const PokemonSearchResultsGrid: React.FunctionComponent<PokemonSearchResultsGridProps> = ({ results }) => {
   console.log("PokemonSearchResultsGrid");
   return (
-    <Panel>
+    <StyledDiv>
       {results.map((name) => (
         <PokemonSearchResultsGridCard key={name} name={name} />
       ))}
-    </Panel>
+    </StyledDiv>
   );
 };
 

@@ -1,11 +1,11 @@
-import { styled } from "@stitches/react";
 import * as LabelPrimitive from "@radix-ui/react-label";
-import { grayA } from "@radix-ui/colors";
+import { appStyled, theme } from "../../../lib/styling/stitches.config";
 
-const Label = styled(LabelPrimitive.Root, {
+const Label = appStyled(LabelPrimitive.Root, {
   fontSize: ".8rem",
-  color: grayA.grayA11,
+  color: theme.colors.textPrimaryLight,
   userSelect: "none",
+  padding: ".25rem",
 });
 
 export default Label;

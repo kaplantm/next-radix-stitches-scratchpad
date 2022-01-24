@@ -1,10 +1,11 @@
-import { blackA } from "@radix-ui/colors";
-import { styled } from "@stitches/react";
-import Flex from "../Flex";
+import boxShadowDefaults from "../../../lib/constants/boxShadow";
+import { appStyled } from "../../../lib/styling/stitches.config";
+import StyledDiv from "../StyledDiv";
 
-const Panel = styled(Flex, {
-  boxShadow: `0 0 0 1px ${blackA.blackA9}`,
+const Panel = appStyled(StyledDiv, {
+  boxShadow: "$2",
   padding: "2rem",
+  margin: "2rem 0",
   borderRadius: 8,
   backgroundColor: "hsla(255, 100%, 100%, .1)",
 });

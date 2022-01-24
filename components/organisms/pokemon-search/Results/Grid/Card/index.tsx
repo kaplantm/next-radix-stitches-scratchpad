@@ -1,11 +1,11 @@
-import Panel from "../../../../../atoms/Panel";
+import StyledDiv from "../../../../../atoms/StyledDiv";
 
 type PokemonSearchResultsGridCardProps = {
   name: string;
 };
 
 const PokemonSearchResultsGridCard: React.FunctionComponent<PokemonSearchResultsGridCardProps> = ({ name }) => {
-  return <Panel>{name}</Panel>;
+  return <StyledDiv>{name}</StyledDiv>;
 };
 
 export default PokemonSearchResultsGridCard;
