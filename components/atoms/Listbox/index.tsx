@@ -1,5 +1,6 @@
 import { useListBox, useOption } from "@react-aria/listbox";
 import { useRef } from "react";
+import StyledUL, { StyledLI } from "../StyledListElements";
 
 // TODO: now props, update stlye
 function ListBox(props: any) {
@@ -8,56 +9,23 @@ function ListBox(props: any) {
   let { listBoxProps } = useListBox(props, state, listBoxRef);
 
   return (
-    <ul
-      {...listBoxProps}
-      ref={listBoxRef}
-      style={{
-        margin: 0,
-        padding: 0,
-        listStyle: "none",
-        overflow: "auto",
-        width: 200,
-      }}
-    >
+    <StyledUL {...listBoxProps} ref={listBoxRef}>
       {[...state.collection].map((item) => (
         <Option key={item.key} item={item} state={state} />
       ))}
-    </ul>
+    </StyledUL>
   );
 }
 
-// TODO: now props
+// TODO: now props types
 function Option({ item, state }: any) {
   let ref = useRef();
-  let { optionProps, isSelected, isFocused, isDisabled } = useOption({ key: item.key }, state, ref);
-
-  let backgroundColor;
-  let color = "black";
-
-  if (isSelected) {
-    backgroundColor = "blueviolet";
-    color = "white";
-  } else if (isFocused) {
-    backgroundColor = "gray";
-  } else if (isDisabled) {
-    backgroundColor = "transparent";
-    color = "gray";
-  }
+  let { optionProps, isSelected } = useOption({ key: item.key }, state, ref);
 
   return (
-    <li
-      {...optionProps}
-      ref={ref}
-      style={{
-        background: backgroundColor,
-        color: color,
-        padding: "2px 5px",
-        outline: "none",
-        cursor: "pointer",
-      }}
-    >
+    <StyledLI {...optionProps} input selected={isSelected} ref={ref}>
       {item.rendered}
-    </li>
+    </StyledLI>
   );
 }
 

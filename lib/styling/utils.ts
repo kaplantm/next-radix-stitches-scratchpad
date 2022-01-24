@@ -1,4 +1,5 @@
 export const remSizing = {
+  0: "0",
   1: ".25rem",
   2: ".5rem",
   3: ".75rem",

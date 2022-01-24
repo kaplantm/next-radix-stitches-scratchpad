@@ -30,6 +30,16 @@ export const {
   globalCss: appGlobalCss,
 } = createStitches({
   theme: {
+    radii: {
+      4: "4px",
+    },
+    sizes: {
+      minInputWidth: "10rem",
+      minInputHeight: "2rem",
+      minButtonWidth: "10rem",
+      minButtonHeight: "2rem",
+      ...remSizing,
+    },
     colors: { ...colors.palette, ...colors.contextual },
     space: remSizing,
     fontSizes: { ...remSizing, baseSize: "16px" },

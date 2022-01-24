@@ -3,19 +3,21 @@ import { appStyled, theme } from "../../../../lib/styling/stitches.config";
 
 const StyledDropdownButton = appStyled("button", {
   all: "unset",
-  width: 200,
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "space-between",
   borderRadius: 4,
   padding: "0 10px",
   margin: ".1rem 0",
-  height: 35,
   fontSize: 15,
   lineHeight: 1,
   color: theme.colors.textPrimaryMain,
   backgroundColor: theme.colors.filledInputMain,
   boxShadow: theme.shadows[3],
+  width: "100%",
+  minWidth: "$minInputWidth",
+  minHeight: "$minInputHeight",
+  maxWidth: "30rem",
   "&:focus": { boxShadow: theme.shadows[4] },
 });
 

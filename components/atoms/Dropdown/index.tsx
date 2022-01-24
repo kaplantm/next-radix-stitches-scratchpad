@@ -12,6 +12,8 @@ function DropDown(props: any) {
   // Create state based on the incoming props
   let state = useSelectState(props);
 
+  // state.disabledKeys.add("water");
+  console.log({ state });
   // Get props for child elements from useSelect
   let ref = useRef();
   let { labelProps, triggerProps, valueProps, menuProps } = useSelect(props, state, ref);
@@ -20,7 +22,7 @@ function DropDown(props: any) {
   let { buttonProps } = useButton(triggerProps, ref);
 
   return (
-    <StyledDiv css={{ margin: "1rem" }}>
+    <StyledDiv css={{ margin: "1rem", minWidth: "$minInputWidth" }}>
       <Label {...labelProps} css={{ display: "block" }}>
         {props.label}
       </Label>
