@@ -1,4 +1,3 @@
-import { adjustColor } from "../utils/colorUtils/adjustHSLA";
 import palette from "./palette";
 
 console.log({ palette });

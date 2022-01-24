@@ -4,7 +4,7 @@ import StyledUL, { StyledLI } from "../StyledListElements";
 
 // TODO: now props, update stlye
 function ListBox(props: any) {
-  let ref = useRef();
+  let ref = useRef<any>();
   let { listBoxRef = ref, state } = props;
   let { listBoxProps } = useListBox(props, state, listBoxRef);
 
@@ -19,7 +19,7 @@ function ListBox(props: any) {
 
 // TODO: now props types
 function Option({ item, state }: any) {
-  let ref = useRef();
+  let ref = useRef<any>();
   let { optionProps, isSelected } = useOption({ key: item.key }, state, ref);
 
   return (
