@@ -15,7 +15,7 @@ function DropDown(props: any) {
   // state.disabledKeys.add("water");
   console.log({ state });
   // Get props for child elements from useSelect
-  let ref = useRef();
+  let ref = useRef<any>();
   let { labelProps, triggerProps, valueProps, menuProps } = useSelect(props, state, ref);
 
   // Get props for the button based on the trigger props from useSelect
